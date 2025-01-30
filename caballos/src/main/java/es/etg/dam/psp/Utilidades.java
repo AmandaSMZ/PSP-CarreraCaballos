@@ -21,7 +21,6 @@ public class Utilidades {
     public static synchronized void enviar(int numero, Socket cliente) throws IOException {
         String numeroString = String.valueOf(numero);
         enviar(numeroString, cliente);
-        System.out.println("comprobando puntos");
     }
 
     public static synchronized String recibir(Socket cliente) throws IOException {

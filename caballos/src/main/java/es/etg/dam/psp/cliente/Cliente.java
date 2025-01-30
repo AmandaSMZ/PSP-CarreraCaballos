@@ -21,6 +21,7 @@ public class Cliente {
                 mensaje = Utilidades.recibir(cliente);
                 System.out.println(mensaje);
             } while (!mensaje.equals("ENHORABUENA") && (!mensaje.equals("GAME-OVER")));
+            System.out.println();
             cliente.close();
 
     }
