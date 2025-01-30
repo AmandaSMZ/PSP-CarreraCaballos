@@ -21,4 +21,7 @@ public class Partida {
     public int getCaballosRegistrados(){
         return caballosRegistrados;
     }
+    public void setCaballosRegistrados(){
+        caballosRegistrados++;
+    }
 }

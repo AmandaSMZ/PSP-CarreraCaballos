@@ -17,10 +17,12 @@ public class Servidor {
         Partida partida = new Partida();
 
 
-        while (true){
-            Socket cliente = server.accept();
+        while (partida.getCaballosRegistrados() < Partida.MAX_CABALLOS){
             System.out.println("escuchando");
+            Socket cliente = server.accept();
+            
             String nombre = Utilidades.recibir(cliente);
+            partida.setCaballosRegistrados();
             Thread hilo = new Thread(new Caballo(nombre,cliente, partida));
             hilo.start();
         }

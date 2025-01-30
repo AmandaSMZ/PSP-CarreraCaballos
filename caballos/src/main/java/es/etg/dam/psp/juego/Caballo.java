@@ -30,9 +30,11 @@ public class Caballo implements Runnable {
     @Override
     public void run() {
         try {
+            Utilidades.enviar("OK", conexion);
             partida.empezarPartida();
                 Thread.sleep(2000);
-            Utilidades.enviar("OK", conexion);
+                Utilidades.enviar("ENHORABUENA", conexion);
+            
         } catch (Exception ex) {
         }
 
