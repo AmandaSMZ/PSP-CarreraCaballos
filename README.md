@@ -1,5 +1,6 @@
 # CARRERA DE CABALLOS
 
+### Protocolo de conexión
 ```plantuml
 @startuml
 actor Cliente
@@ -26,7 +27,7 @@ deactivate Servidor
 @enduml
 
 ```
-
+### Arquitectura
 
 ```plantuml
 @startuml
@@ -59,6 +60,7 @@ ServidorJuego --> Utilidades
 @enduml
 
 ```
+### Diseño
 
 ```plantuml
 @startuml
@@ -124,8 +126,6 @@ package juego {
         -nombre : String
         +setPuntos(int) : void
     }
-
-    
 }
 
 Servidor --> Partida
