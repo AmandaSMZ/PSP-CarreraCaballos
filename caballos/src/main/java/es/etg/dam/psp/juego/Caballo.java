@@ -3,9 +3,9 @@ package es.etg.dam.psp.juego;
 import java.net.Socket;
 
 public class Caballo {
-    private Socket conexion;
+    private final Socket conexion;
     private int puntos = 0;
-    private String nombre;
+    private final String nombre;
 
     public Caballo(String nombre, Socket conexion) {
         this.nombre = nombre;

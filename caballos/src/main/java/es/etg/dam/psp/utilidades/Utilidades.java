@@ -10,6 +10,7 @@ public class Utilidades {
     public final static String CHARSET = "UTF-8";
     public final static String MENSAJE_GANADOR = "ENHORABUENA";
     public final static String MENSAJE_PERDEDOR = "GAME-OVER";
+    public final static String MENSAJE_OK = "OK";
     public final static int MAX_CABALLOS = 4;
     public static int PUERTO = 8880;
 
