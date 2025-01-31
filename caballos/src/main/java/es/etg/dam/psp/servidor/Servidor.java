@@ -9,23 +9,26 @@ import es.etg.dam.psp.juego.Partida;
 import es.etg.dam.psp.utilidades.Utilidades;
 
 public class Servidor {
-    public static final int PUERTO = 8880;
-    public static boolean juegoActivo = true;
+    public final static String MENSAJE_INICIADO = "Servidor iniciado en el puerto ";
+    public final static String MENSAJE_CLIENTE_CONECTADO = "Cliente conectado: ";
+    public final static String MENSAJE_OK = "OK";
 
-    public static void main(String[] args) throws IOException {
-        ServerSocket server = new ServerSocket(PUERTO);
+    public static void main(String[] args) throws IOException, InterruptedException {
         Partida partida = new Partida();
 
+        try (ServerSocket servidor = new ServerSocket(Utilidades.PUERTO)) {
+            System.out.println(MENSAJE_INICIADO + Utilidades.PUERTO);
 
-        while (partida.getCaballosRegistrados() < Partida.MAX_CABALLOS){
-            System.out.println("escuchando");
-            Socket cliente = server.accept();
-            
-            String nombre = Utilidades.recibir(cliente);
-            partida.setCaballosRegistrados();
-            Thread hilo = new Thread(new Caballo(nombre,cliente, partida));
-            hilo.start();
+            while (partida.getCaballosRegistrados() < Utilidades.MAX_CABALLOS) {
+                Socket socket = servidor.accept();
+                String nombre = Utilidades.recibir(socket);
+                System.out.println(MENSAJE_CLIENTE_CONECTADO + nombre);
+                partida.aniadir(new Caballo(nombre, socket));
+                Utilidades.enviar(MENSAJE_OK, socket);
+            }
+
         }
+        partida.empezarPartida();
 
-}
+    }
 }

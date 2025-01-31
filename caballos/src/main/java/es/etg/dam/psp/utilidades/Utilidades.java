@@ -7,23 +7,26 @@ import java.io.InputStream;
 import java.net.Socket;
 
 public class Utilidades {
-    public final String MENSAJE_GANADOR = "ENHORABUENA";
-    public final String MENSAJE_PERDEDOR = "GAME_OVER";
+    public final static String CHARSET = "UTF-8";
+    public final static String MENSAJE_GANADOR = "ENHORABUENA";
+    public final static String MENSAJE_PERDEDOR = "GAME-OVER";
+    public final static int MAX_CABALLOS = 4;
+    public static int PUERTO = 8880;
 
     public static synchronized void enviar(String mensaje, Socket cliente) throws IOException {
 
         DataOutputStream output = new DataOutputStream(cliente.getOutputStream());
-        byte[] mensajeBytes = mensaje.getBytes("UTF-8");
+        byte[] mensajeBytes = mensaje.getBytes(CHARSET);
         output.writeInt(mensajeBytes.length);
         output.write(mensajeBytes);
     }
 
-    public static synchronized void enviar(int numero, Socket cliente) throws IOException {
+    public static void enviar(int numero, Socket cliente) throws IOException {
         String numeroString = String.valueOf(numero);
         enviar(numeroString, cliente);
     }
 
-    public static synchronized String recibir(Socket cliente) throws IOException {
+    public static String recibir(Socket cliente) throws IOException {
         
         InputStream aux = cliente.getInputStream();
         DataInputStream input = new DataInputStream(aux);
@@ -31,7 +34,7 @@ public class Utilidades {
         byte[] mensajeBytes = new byte[longitud];
         input.readFully(mensajeBytes);
 
-        return new String(mensajeBytes, "UTF-8");
+        return new String(mensajeBytes, CHARSET);
     }
 
 }
