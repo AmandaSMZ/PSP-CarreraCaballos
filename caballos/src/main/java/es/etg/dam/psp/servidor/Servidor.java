@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import es.etg.dam.psp.Utilidades;
 import es.etg.dam.psp.juego.Caballo;
 import es.etg.dam.psp.juego.Partida;
+import es.etg.dam.psp.utilidades.Utilidades;
 
 public class Servidor {
     public static final int PUERTO = 8880;

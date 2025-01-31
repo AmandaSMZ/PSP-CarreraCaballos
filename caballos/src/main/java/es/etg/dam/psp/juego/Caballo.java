@@ -2,7 +2,7 @@ package es.etg.dam.psp.juego;
 
 import java.net.Socket;
 
-import es.etg.dam.psp.Utilidades;
+import es.etg.dam.psp.utilidades.Utilidades;
 
 public class Caballo implements Runnable {
     private String nombre;
@@ -35,7 +35,7 @@ public class Caballo implements Runnable {
             partida.empezarPartida();
             Thread.sleep(2000);
             while (partida.isPartidaEnCurso()) {
-                Thread.sleep(2000);
+                Thread.sleep((int) (Math.random() * 300)); 
                 int avance = partida.avanzar(this);
                 if (avance > 0) Utilidades.enviar(avance, conexion);
                 

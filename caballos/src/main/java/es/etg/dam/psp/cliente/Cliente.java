@@ -3,7 +3,7 @@ package es.etg.dam.psp.cliente;
 import java.io.IOException;
 import java.net.Socket;
 
-import es.etg.dam.psp.Utilidades;
+import es.etg.dam.psp.utilidades.Utilidades;
 
 public class Cliente {
     static final int PUERTO = 8880;

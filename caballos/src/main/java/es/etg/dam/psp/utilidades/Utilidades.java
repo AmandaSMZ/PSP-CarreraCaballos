@@ -1,4 +1,4 @@
-package es.etg.dam.psp;
+package es.etg.dam.psp.utilidades;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
