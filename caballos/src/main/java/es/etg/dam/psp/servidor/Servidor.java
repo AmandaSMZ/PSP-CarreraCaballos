@@ -26,24 +26,27 @@ public class Servidor {
                 registrarCaballo(socket, partida);
                 Utilidades.enviar(Utilidades.MENSAJE_OK, socket);
             }
-
         }
+
         Thread.sleep(2000);
         while (partida.getCaballoGanador() == null){
-            Caballo caballoTurno = partida.getTurnoCaballo();
-            int puntos = partida.avanzar(caballoTurno);
-            Utilidades.enviar(puntos, caballoTurno.getConexion());
+            jugarTurno(partida);
         }
 
         System.out.println(MENSAJE_CABALLO_GANADOR+partida.getCaballoGanador().getNombre());
         enviarMensajeFinal(partida.getCaballos(),partida.getCaballoGanador());
-
     }
+
     public static void registrarCaballo(Socket conexion, Partida partida) throws IOException{
-        
         String nombre = Utilidades.recibir(conexion);
         System.out.println(MENSAJE_CLIENTE_CONECTADO + nombre);
         partida.aniadir(new Caballo(nombre, conexion));
+    }
+
+    public static void jugarTurno(Partida partida) throws InterruptedException, IOException{
+        Caballo caballoTurno = partida.getTurnoCaballo();
+        int puntos = partida.avanzar(caballoTurno);
+        Utilidades.enviar(puntos, caballoTurno.getConexion());
     }
 
     public static void enviarMensajeFinal(List<Caballo> caballos, Caballo caballoGanador) throws IOException {

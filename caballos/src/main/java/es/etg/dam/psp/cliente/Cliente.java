@@ -23,7 +23,5 @@ public class Cliente {
                 System.out.println(mensaje);
             } while (!mensaje.equals(Utilidades.MENSAJE_GANADOR) && (!mensaje.equals(Utilidades.MENSAJE_PERDEDOR)));
         }
-
     }
-
 }

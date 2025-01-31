@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Partida {
     private static final int MAX_PUNTOS_TURNO = 10;
-    public static final int MAX_PUNTOS = 100;
+    private static final int MAX_PUNTOS = 100;
     private Caballo caballoGanador = null;
     private List<Caballo> caballos = new ArrayList<>();
 
