@@ -1,6 +1,11 @@
 # CARRERA DE CABALLOS                         
 https://github.com/AmandaSMZPSP-CarreraCaballos
 
+Carrera de caballos
+Los clientes se van a conectar al servidor, inicialmente habrá hasta 4 caballos, en el futuro podría haber más. Los caballos se registrarán enviando su nombre. El servidor les contestará con un "OK" cuando los registre, y cada cliente esperará a recibir mensajes después de recibir el OK.
+
+Una vez que se registren lo 4 caballos, el servidor esperará 2 segundos e irá mandando aleatoriamente valores del 1 al 10 a cada cliente (aleatoriamente cada cliente). Cuando un cliente llegue (o supere) a 100, éste habrá ganado y el juego se dará por finalizado enviando a los clienes: "GAME OVER" si han perdido y "ENHORABUENA" si ha ganado.
+
 ### Protocolo de conexión
 ```plantuml
 @startuml
